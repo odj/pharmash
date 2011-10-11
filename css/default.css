@@ -1,0 +1,197 @@
+html {
+  color: black;
+  font-family: 'Lucida Sans', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  background-color: white;
+  line-height: 125%;
+}
+
+body {
+  width: 600px;
+  margin: 0px auto 0px auto;
+  padding-bottom: 50px;
+  text-align: justify
+}
+
+div#header {
+  background: orange;
+  padding-top: 30px;
+  height: 40px;
+}
+
+div#header a {
+  color: white;
+  border-bottom: 2px dotted orange;
+  font-size: 40px;
+  text-decoration: none;
+  display: block;
+  width: right;
+  margin: 0px auto 0px auto;
+}
+
+div#navigation {
+  text-align: center;
+  border-bottom: 4px solid orange;
+  margin: 0px;
+
+}
+
+div#navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: orange;
+  float: right;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 5px 0px 5px;
+}
+
+div#navigation a:hover {
+  color: lightgray;
+}
+
+code {
+    font-size: 14px;
+    line-height: 125%;
+    background-color: #FFFFCC;
+    border: 1px solid orange;
+}
+
+pre code {
+    display: block;
+    padding: 8px;
+    margin-bottom: 2em;
+    background-color: #FFFFCC;
+    border: 2px solid orange;
+}
+
+blockquote {
+    background: rgb(230, 230, 230) url("../images/quote-background.png") no-repeat top left;
+    font-family: serif;
+    padding: 5px 5px 5px 50px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+div#footer {
+  background: orange;
+  clear: both;
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  height: 25px;
+  color: white;
+  margin-top: 15px;
+}
+
+div#footer a {
+  color: white;
+}
+
+div.tags {
+    font-size: 16px;
+}
+
+div.tag-cloud {
+    clear: both;
+    text-align: center;
+}
+
+h1 {
+    font-size: 27px;
+    font-weight: normal;
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+img {
+    border: none;
+    margin: 10px auto 10px auto;
+    display: block;
+}
+
+img.inline-image {
+    margin: 0px;
+    display: inline;
+}
+
+img.pretty {
+    margin: 10px;
+    display: inline;
+    float: left;
+}
+
+.soft {
+    color: rgb(100, 100, 100);
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+p.caption {
+    font-size: 14px;
+    text-align: center;
+    color: black;
+}
+
+.timeline-default {
+  border: 2px solid orange;
+  height: 200px; 
+  width: 600px; 
+
+}
+
+ 
+div.footnotes {
+    border-left: 2px dotted orange;
+}
+
+div.footnotes hr {
+    display: none;
+}
+
+table.post {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 14px;
+  line-height: 125%;
+  background-color: #FFFFCC;  
+  border-width: 2px;
+  border-spacing: ;
+  border-style: solid;
+  border-color: orange;
+  border-collapse: separate;
+}
+table.post th {
+  border-width: 1px;
+  padding: 3px;
+  border-style: solid;
+  border-color: orange;
+  background-color: #FFFFCC;
+}
+table.post td {
+  border-width: 1px;
+  padding: 3px;
+  border-style: solid;
+  border-color: orange;
+  background-color: #FFFFCC;
+}
+

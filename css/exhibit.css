@@ -1,0 +1,78 @@
+img {
+    border: none;
+    margin: auto auto auto auto;
+    display: inline;
+}
+
+
+
+p.caption {
+    font-size: 14px;
+    text-align: center;
+    color: black;
+}
+
+.timeline-default {
+  border: 2px solid orange;
+  height: 200px; 
+  width: 600px; 
+
+}
+
+ 
+div.footnotes {
+    border-left: 2px dotted orange;
+}
+
+div.footnotes hr {
+    display: none;
+}
+
+
+table.compoundlist {
+	border:     1px solid #ddd;
+	padding:    0.5em;
+}
+div.name {
+	font-weight: bold;
+	font-size:   100%;
+}
+span.ta {
+	font-weight: bold;
+	font-size:   120%;
+}
+a.pubchemLink {
+	font-weight: bold;
+	font-size:   75%;
+}
+div.label {
+	font-weight: bold;
+	font-size:   120%;
+}
+
+
+div.facet {
+  font-size:   100%;
+  display: block;
+  padding: 8px;
+  background-color: #FFFFCC;
+  border: 2px solid orange;
+  line-height: 100%;
+  margin: -100;
+  text-align: left;
+
+}
+div.field {
+  font-weight: bold;
+	font-size:   100%;
+}
+span.content {
+  font-weight: normal;
+	font-size:   100%;
+}
+img.structure {
+  display: block;
+  padding: 8px;
+  margin-bottom: 2em;
+  border: 2px solid orange;
+}			

@@ -1,0 +1,70 @@
+<data
+  wiki-section="Orion Jankowski Timeline">
+    <event 
+       start="Sep 1 1994 00:00:00 GMT-0600" 
+			 end="Dec 01 1998 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="UC Berkeley, BS Chemistry"> 
+    </event>
+    <event 
+       start="May 1 1997 00:00:00 GMT-0600" 
+			 end="Aug 01 1997 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Internship Genentech">
+    </event>
+    <event 
+       start="Sep 1 1999 00:00:00 GMT-0600" 
+			 end="Oct 01 2004 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Stanford University, PhD Chemistry">
+    </event>
+		<event 
+       start="Feb 1 1999 00:00:00 GMT-0600" 
+			 end="Sep 1 1999 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Raychem (Tyco Electronics)">
+    </event>
+		<event 
+       start="Mar 6 2006 00:00:00 GMT-0600" 
+			 end="Aug 18 2009 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Edison Pharmaceuticals">
+    </event>
+		<event 
+       start="Aug 19 2009 00:00:00 GMT-0600" 
+			 end="Aug 3 2010 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Independent Consulting">
+    </event>
+		<event 
+       start="Oct 1 2004 00:00:00 GMT-0600" 
+			 end="Jan 1 2006 00:00:00 GMT-0600" 
+			 isDuration="true"
+       title="Celera">
+    </event>	
+		<event 
+       start="Jan 14 2006 00:00:00 GMT-0600" 
+       title="Org. Lett. 2006, 8, 589-592">
+			Correlation of F0F1-ATPase Inhibition and Antiproliferative Activity of Apoptolidin Analogues
+    </event>
+		<event 
+       start="May 23 2003 00:00:00 GMT-0600" 
+       title="Org. Lett. 2003, 5, 2299-2302">
+			Facile Synthetic Access to and Biological Evaluation of the Macrocyclic Core of Apoptolidin
+    </event>
+		<event 
+       start="Jan 21 2003 00:00:00 GMT-0600" 
+       title="Org. Lett. 2003, 5, 487-490">
+			Toward a Structure-Activity Relationship for Apoptolidin: Selective Functionalization of the Hydroxyl Group Array
+    </event>
+		<event 
+       start="Oct 1 2002 00:00:00 GMT-0600" 
+       title="Org. Lett. 2002, 4, 3819-3822">
+			Isoapoptolidin: Structure and Activity of the Ring-Expanded Isomer of Apoptolidin
+    </event>
+		<event 
+       start="Aug 2 2010 00:00:00 GMT-0600" 
+       title="Released OUCH">
+			http://www.pharmash.com/posts/2010-08-02-ouch.html
+    </event>
+</data>

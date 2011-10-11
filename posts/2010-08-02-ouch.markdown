@@ -1,0 +1,153 @@
+---
+title: Ouch Uses Chemical Haskell (OUCH) 
+author: Orion Jankowski
+tags: OUCH, Haskell, chemistry
+---
+
+##Introducing OUCH
+
+After discovering Haskell a little while back, I decided it would be the
+perfect language with which to write a chemical informatics toolkit, similar
+to [cdk](http://sourceforge.net/apps/mediawiki/cdk/index.php?title=Main_Page)
+and [openbabel](http://openbabel.org/wiki/Main_Page). Haskell is 
+[fast](http://shootout.alioth.debian.org/u32/benchmark.php?test=all&lang=ghc&lang2=java), 
+it simplifies concurrency, and most chemical problems are inherently
+stateless anyway, which makes them good candidates for pure functional programming.
+
+GHCi, the Haskell interpreter, is also a big plus because it allows small
+tasks to be performed on a whim rather than building an application.  This
+is essentially also what you get with
+[Pybel](http://journal.chemistrycentral.com/content/2/1/5) or
+[Cinfony](http://code.google.com/p/cinfony/), except it doesn't use bindings--
+with Haskell you get it all for free.  (An example of this constitutes the
+majority of this post.)
+
+OUCH (`O`uch `U`ses `C`hemical `H`askell) is what resulted from this thread of
+inspiration.  It is a very simple chemical toolkit Cabal package.  At the
+moment, OUCH is just barely off the ground, but it's functional enough that I
+can demonstrate a few parlor tricks.  At the time of this post, it can read in
+most well formed smiles strings (and some poorly formed ones) calculate
+molecular formula and molecular weight--and not a whole lot else. As time
+permits, I hope more useful functionality will be forthcoming.
+
+But first, the parlor tricks...
+
+##List Comprehension as a Poor Man's Markush
+
+One of the nifty features included in Haskell is list comprehension.  Below, I've
+hijacked list comprehension to illustrate off-the-cuff Markush enumeration
+(something I plan to formally implement in the future).  A Markush is a
+description of an ensemble of molecular structures following a list of rules--
+usual a set of *R* groups and points where they are allowed to connect.
+Markushes are typically used with iniquitous intent in patent claims (in
+countries that permit them).  We can define a very simple one in GHCi using
+list comprehension to concatenate smiles substrings as shown below:
+
+~~~~~~~{.haskell}
+> let core = ["c1c2c3ccc1", "c1c2cc3cc1"]
+> let r1 = ["N2", "O2", "Br2"]
+> let r2 = ["N3", "O3", "Br3", "CC3CC", "C3CN(C)C"]
+> let enum = [ a ++ "." ++ b ++ "." ++ c | a <- core, b <- r1, c <- r2 ]
+~~~~~~~~
+
+
+![A Simple Markush](../images/2010-08-02-ouch-image1.png)
+
+
+Here, we have two core rings, each with two points of attachment: `R1` and `R2`.  Since 
+`R1` has three possible elements and `R2` has five possible elements, there should
+be a total of 30 structures defined by this Markush.  Happily, this is the case,
+and we can see the corresponding smiles strings if we like by dumping the variable
+`enum`.
+
+~~~~~~~{.haskell}
+> length enum
+
+30
+
+> enum
+
+["c1c2c3ccc1.N2.N3","c1c2c3ccc1.N2.O3","c1c2c3ccc1.N2.Br3",
+ "c1c2c3ccc1.N2.CC3CC","c1c2c3ccc1.N2.C3CN(C)C","c1c2c3ccc1.O2.N3",
+ "c1c2c3ccc1.O2.O3","c1c2c3ccc1.O2.Br3","c1c2c3ccc1.O2.CC3CC",
+ "c1c2c3ccc1.O2.C3CN(C)C","c1c2c3ccc1.Br2.N3","c1c2c3ccc1.Br2.O3",
+ "c1c2c3ccc1.Br2.Br3","c1c2c3ccc1.Br2.CC3CC","c1c2c3ccc1.Br2.C3CN(C)C",
+ "c1c2cc3cc1.N2.N3","c1c2cc3cc1.N2.O3","c1c2cc3cc1.N2.Br3",
+ "c1c2cc3cc1.N2.CC3CC","c1c2cc3cc1.N2.C3CN(C)C","c1c2cc3cc1.O2.N3",
+ "c1c2cc3cc1.O2.O3","c1c2cc3cc1.O2.Br3","c1c2cc3cc1.O2.CC3CC",
+ "c1c2cc3cc1.O2.C3CN(C)C","c1c2cc3cc1.Br2.N3","c1c2cc3cc1.Br2.O3",
+ "c1c2cc3cc1.Br2.Br3","c1c2cc3cc1.Br2.CC3CC","c1c2cc3cc1.Br2.C3CN(C)C"]
+~~~~~~~
+
+Now that we have our smiles in a list, we can start to have some fun!  OUCH
+uses the function `makeMoleculeFromSmiles` to parse a smiles string into a 
+molecule data structure.  Mapping `makeMoleculeFromSmiles` over the
+list of smiles gives us a new
+list that contains all 30 molecules in our enumerated Markush.
+
+Next, we can do a simple calculation with our list.  In this case, producing
+a well-formed molecular formula string using the function `molecularFormula`.
+This time we need to add the function `rights` because of the way
+`molecularFormula` returns its result:  `molecularFormula` tolerates
+arguments that might not have a discrete formula, such as polymers and Markushes.
+If an exact molecular formula can be calculated it goes into the `Right` of the `Either` type.
+If it cannot, then the next best answer (or an error message) goes in the `Left`.
+In this example, a molecular formula *can* be calculated for every list item,
+so all `rights` does is ditch the `Either` type wrapper and give us a list of strings,
+which is what we want.
+
+~~~~~~{.haskell}
+> let molecules = map makeMoleculeFromSmiles enum
+> let mfs = rights $ map molecularFormula molecules
+> mfs
+
+["C6H8N2","C6H7NO","C6H6BrN","C10H15N","C10H16N2","C6H7NO","C6H6O2",
+ "C6H5BrO","C10H14O","C10H15NO","C6H6BrN","C6H5BrO","C6H4Br2",
+ "C10H13Br","C10H14BrN","C6H8N2","C6H7NO","C6H6BrN","C10H15N",
+ "C10H16N2","C6H7NO","C6H6O2","C6H5BrO","C10H14O","C10H15NO",
+ "C6H6BrN","C6H5BrO","C6H4Br2","C10H13Br","C10H14BrN"]
+~~~~~~~~
+
+We can do something similar with `molecularWeight`, striping off
+the `Either` type and rounding to give a nice (if not precise) 
+list of integers.
+
+~~~~~~{.haskell}
+> let mws = map round $ rights $ map molecularWeight molecules
+> mws
+
+[108,109,172,149,164,109,110,173,150,165,172,173,236,213,228,108,
+ 109,172,149,164,109,110,173,150,165,172,173,236,213,228]
+~~~~~~~~
+
+And finally, zip the lists together.
+
+~~~~~~{.haskell}
+> zip mfs mws
+
+[("C6H8N2",108),("C6H7NO",109),("C6H6BrN",172),("C10H15N",149),
+ ("C10H16N2",164),("C6H7NO",109),("C6H6O2",110),("C6H5BrO",173),
+ ("C10H14O",150),("C10H15NO",165),("C6H6BrN",172),("C6H5BrO",173),
+ ("C6H4Br2",236),("C10H13Br",213),("C10H14BrN",228),("C6H8N2",108),
+ ("C6H7NO",109),("C6H6BrN",172),("C10H15N",149),("C10H16N2",164),
+ ("C6H7NO",109),("C6H6O2",110),("C6H5BrO",173),("C10H14O",150),
+ ("C10H15NO",165),("C6H6BrN",172),("C6H5BrO",173),("C6H4Br2",236),
+ ("C10H13Br",213),("C10H14BrN",228)] 
+~~~~~~~~
+
+With a just few more functions, you can start to do some genuinely useful things--
+all from the interpreter prompt with the power of functional programming at your 
+fingertips.  
+
+OUCH is still in its very early stages, and I'm in the process of re-writing most
+of it because I've coded myself in a corner.  That's OK, since this is my first
+real Haskell project and has, to this point, been predominantly a learning exercise.  I
+hope in the future it becomes something more.
+
+If you want to take a look and kick the tires, feel free to visit the [OUCH
+repo](https://github.com/odj/Ouch) on github.  I'd love to hear what you think.
+
+
+
+
+
