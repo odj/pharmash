@@ -13,5 +13,6 @@ Enjoy!
 Since I've been fooling around with [Node.js](http://nodejs.org/) recently, I've also
 decided to use Node as the web server instead of good 'ol Apache.  Since pharmash is 
 almost entirely static, this doesn't (yet) make much of a difference (other than requiring
-me to rewrite some small php components).  We'll see how this goes...
+me to rewrite some small php components).  We'll see how this goes...  Please leave a comment
+if you see any strange site behavior.
 
