@@ -5,8 +5,8 @@ tags: node.js
 ---
 
 ##Site code on Github
-I finally got around to upgrading [pharmash](www.pharmash.com) to Hakyll-3.2.  This was also a
-great opportunity to put the code up on Github [here](https://github.com/odj/pharmash).
+I finally got around to upgrading [pharmash](http://www.pharmash.com) to Hakyll-3.2.  This was also a
+great opportunity to put the code up on Github [here](http://github.com/odj/pharmash).
 Enjoy! 
 
 ##Web server powered by Node.js
