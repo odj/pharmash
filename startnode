@@ -1,8 +1,28 @@
 #!/bin/bash
+
+# Is node running already?  Kill it.
+
+
 NOW=`date +%Y%m%d`
 LOGFILE=/var/log/node-pharmash-$NOW.log
 touch $LOGFILE
 
+# These libraries are so ginormous that hakyll spends 
+# far too much time processing them (also shouldn't be int the
+# git repo anyway.  No make new s links to them on launch.
+
+echo "### Deleting library symlinks"
+find _site/lib -type l | xargs rm
+
+echo "### Building static site"
+./hakyll3 build
+
+echo "### Creating symlinks"
+ln -s ../../../pharmash.com/lib/simile _site/lib/.
+ln -s ../../../pharmash.com/lib/timeline_2.3.0 _site/lib/.
+ln -s ../../../pharmash.com/lib/RGraph .3.0 _site/lib/.
+
+echo "### Starting node"
 echo "`date`  **** STARTING NODE ****" >> $LOGFILE
 NODE_ENV=production node app.js >> $LOGFILE &
 

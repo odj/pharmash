@@ -28,10 +28,10 @@
 								            theme.event.bubble.width = 500;
 								            theme.event.bubble.height = 100;
 
-								            var d = Timeline.DateTime.parseGregorianDateTime("2000")
+								            var d = Timeline.DateTime.parseGregorianDateTime('2000')
 								            var bandInfos = [
 								                Timeline.createBandInfo({
-								                    width:          "85%", 
+								                    width:          '85%', 
 								                    intervalUnit:   Timeline.DateTime.YEAR, 
 								                    intervalPixels: 50,
 								                    eventSource:    eventSource,
@@ -40,7 +40,7 @@
 								                    layout:         'original'  // original, overview, detailed
 								                }),
 								                Timeline.createBandInfo({
-								                    width:          "15%", 
+								                    width:          '15%', 
 								                    intervalUnit:   Timeline.DateTime.DECADE, 
 								                    intervalPixels: 200,
 								                    eventSource:    eventSource,
@@ -54,8 +54,8 @@
 								
 
 
-		            tl = Timeline.create(document.getElementById("tl"), bandInfos, Timeline.HORIZONTAL);
-		            tl.loadXML("resources/odj_timeline.xml", function(xml, url) { eventSource.loadXML(xml, url); });
+		            tl = Timeline.create(document.getElementById('tl'), bandInfos, Timeline.HORIZONTAL);
+		            tl.loadXML('resources/odj_timeline.xml', function(xml, url) { eventSource.loadXML(xml, url); });
 		        }
 
 		        var resizeTimerID = null;
