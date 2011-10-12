@@ -1,0 +1,8 @@
+#!/bin/bash
+NOW=`date +%Y%m%d`
+LOGFILE=/var/log/node-pharmash-$NOW.log
+touch $LOGFILE
+
+echo "`date`  **** STARTING NODE ****" >> $LOGFILE
+NODE_ENV=production node app.js >> $LOGFILE &
+

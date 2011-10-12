@@ -13,7 +13,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.logger({ format: ':method :url' }));
+  app.use(express.logger({ format: 'default'}));
   app.use(express.static(__dirname + '/_site'));
 });
 
