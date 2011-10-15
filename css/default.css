@@ -136,6 +136,15 @@ img.pretty {
     float: left;
 }
 
+.vignette {
+    display: block;
+    padding: 8px;
+    margin-bottom: 2em;
+    background-color: #FFFFCC;
+    border: 2px solid orange;
+}
+
+
 .soft {
     color: rgb(100, 100, 100);
 }
