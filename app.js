@@ -11,6 +11,7 @@ var app = module.exports = express.createServer();
 // Configuration
 
 app.configure(function(){
+  app.use(express.logger({ format: 'default'}));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -33,7 +34,6 @@ app.configure('development', function(){
 });
 
 app.configure('production', function(){
-  app.use(express.logger({ format: 'default'}));
   app.use(express.errorHandler()); 
 });
 

@@ -11,7 +11,7 @@ which does not seem supported by SWIG yet is v8 JavaScript, on which [Node.js](h
 based.  Since I just [moved](http://www.pharmash.com/posts/2011-10-12-deployment-changes.html)
 pharmash over to Node.js, I thought this would be a good excuse to try writing bindings to OpenBabel.[^2].
 
-#Arkleseizure
+##Arkleseizure
 The *very* preliminary result of this effort is [arkleseizure](http://github.com/odj/arkleseizure)[^3],
 a Node.js module that exposes just enough of the Open Babel API to provide convenient translation
 of chemical formats.
