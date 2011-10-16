@@ -37,7 +37,7 @@ main = hakyllWith config $ do
         compile copyFileCompiler
 
     -- Copy misc resources
-    match "resources/*" $ do
+    match "resources/**/*" $ do
         route   idRoute
         compile copyFileCompiler
 
