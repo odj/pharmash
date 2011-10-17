@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Is node running already?  Kill it.
-
+NODE_PROC=`ps -ef | grep 'node app.js' | awk '{print $2}' | head -n1`
+echo "Killing existing node.js process: ${NODE_PROC}"
+kill $NODE_PROC
 
 NOW=`date +%Y%m%d`
 LOGFILE=/var/log/node-pharmash-$NOW.log
@@ -13,6 +15,10 @@ touch $LOGFILE
 
 echo "### Deleting library symlinks"
 find _site/lib -type l | xargs rm
+
+#echo "### Buildiong Hakyll"
+#rm *.hi; rm*.o
+#ghc --make hakyll3
 
 echo "### Building static site"
 ./hakyll3 build
