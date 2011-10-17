@@ -1,5 +1,6 @@
 ---
 title: Drugbank ATM
+description: Using the Simile project to browse chemical data.
 author: Orion Jankowski
 tags: drugs, exhibit
 ---

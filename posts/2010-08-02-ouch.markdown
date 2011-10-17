@@ -1,5 +1,6 @@
 ---
 title: Ouch Uses Chemical Haskell (OUCH) 
+description: A Chemical Informatics framework in Haskell.
 author: Orion Jankowski
 tags: OUCH, Haskell, chemistry
 ---

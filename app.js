@@ -9,9 +9,17 @@ var arkleseizure = require('arkleseizure');
 var app = module.exports = express.createServer();
 
 // Configuration
+app.configure('development', function(){
+  app.use(express.logger({ format: 'dev'}));
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+});
+
+app.configure('production', function(){
+  app.use(express.logger({ format: 'default'}));
+  app.use(express.errorHandler()); 
+});
 
 app.configure(function(){
-  app.use(express.logger({ format: 'default'}));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -28,14 +36,6 @@ app.post('/convert', function(req, res){
 });
 
 
-app.configure('development', function(){
-  app.use(express.logger({ format: 'dev'}));
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
 
 app.listen(80);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

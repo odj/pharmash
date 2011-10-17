@@ -1,5 +1,6 @@
 ---
 title: Enumerations in OUCH  - Part 3
+description: Trying to break canonicalizers for Ouch, Open Babel and JChem
 author: Orion Jankowski
 tags: OUCH, Haskell, chemistry, enumeration, canonicalization
 ---

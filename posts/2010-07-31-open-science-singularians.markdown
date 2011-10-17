@@ -1,5 +1,6 @@
 ---
 title: What's with all the Singularians?
+description: What's with all the Singularians at the Open Science Summit?
 author: Orion Jankowski
 tags: conference, open science, singularians
 ---

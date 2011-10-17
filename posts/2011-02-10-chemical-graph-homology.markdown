@@ -1,5 +1,6 @@
 ---
 title: Chemical Graph Homology
+description: Levenshtein distance for chemical graphs: n unimplemented concept.
 author: Orion Jankowski
 tags: OUCH, chemistry, graph
 ---

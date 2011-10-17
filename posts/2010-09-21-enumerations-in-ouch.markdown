@@ -1,5 +1,6 @@
 ---
 title: Enumerations in OUCH  
+description: Basic chemical enumeration framework in Haskell.
 author: Orion Jankowski
 tags: OUCH, Haskell, chemistry, enumeration, canonicalization
 ---

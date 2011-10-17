@@ -1,5 +1,6 @@
 ---
 title: Golfing with SMILES 
+description: A very concise SMILES parser implementation in Haskell.
 author: Orion Jankowski
 tags: SMILES, Haskell, OUCH, Parsec
 ---

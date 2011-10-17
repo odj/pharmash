@@ -1,5 +1,6 @@
 ---
 title: Node.js Open Babel Bindings
+description: An example of Node.js bindings to Open Babel and a simple web demo.
 author: Orion Jankowski
 tags: node.js, OpenBabel
 ---

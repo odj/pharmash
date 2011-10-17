@@ -1,5 +1,6 @@
 ---
 title: Enumerations in OUCH  - Part 2 
+description: Enumerating a molecular formula.
 author: Orion Jankowski
 tags: OUCH, Haskell, chemistry, enumeration 
 ---

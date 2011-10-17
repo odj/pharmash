@@ -1,5 +1,6 @@
 ---
 title: Open Science Summit 2010
+description: Notes from the Open Science Summit 2010.
 author: Orion Jankowski
 tags: conference, open science
 ---

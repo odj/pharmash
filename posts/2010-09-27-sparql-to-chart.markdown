@@ -1,5 +1,6 @@
 ---
 title: SPARQL to Chart  
+description: Plotting cross-domain data.
 author: Orion Jankowski
 tags: RDF, Javascript, AJAX
 ---

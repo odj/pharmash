@@ -1,5 +1,6 @@
 ---
 title: Deployment Changes
+description: Moved site to Node.js, upgraded to Hakyll 3, and put site source on GitHub.
 author: Orion Jankowski
 tags: node.js
 ---

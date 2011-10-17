@@ -24,5 +24,9 @@ ln -s ../../../pharmash.com/lib/RGraph .3.0 _site/lib/.
 
 echo "### Starting node"
 echo "`date`  **** STARTING NODE ****" >> $LOGFILE
-NODE_ENV=production node app.js >> $LOGFILE &
+if [ ${#@} -eq 0 ]; then
+  NODE_ENV=production node app.js >> $LOGFILE &
+else
+  NODE_ENV=$1 node app.js
+fi
 

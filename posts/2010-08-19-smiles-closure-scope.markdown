@@ -1,5 +1,6 @@
 ---
 title: SMILES Connection Label Scope 
+description: A semantic detail in SMILES descriptions.
 author: Orion Jankowski
 tags: SMILES, chemistry
 ---

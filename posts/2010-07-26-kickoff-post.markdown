@@ -1,6 +1,7 @@
 ---
 title: Kickoff post
 author: Orion Jankowski
+description: Kickoff post
 tags: blog
 ---
 I'm starting this blog as a platform to explore ideas around the future of the
