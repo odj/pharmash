@@ -7,6 +7,7 @@ var express = require('express');
 var arkleseizure = require('arkleseizure');
 
 var app = module.exports = express.createServer();
+var baidu = /baidu/;
 
 // Configuration
 app.configure('development', function(){
@@ -33,6 +34,16 @@ app.post('/convert', function(req, res){
     a.SetOutFormat(req.body.outputFormat);
     var output = a.Convert(req.body.inputValue); 
     res.send(output);
+});
+
+app.get('/*', function(req, res, next) {
+    var agent = req.header('user-agent');
+    if (!baidu.exec(agent)) {
+        next();
+    } else {
+        console.log("Baidu!!");
+        // Baidu spider reliably crashes my web site.  Not sure why/how.
+    }
 });
 
 
