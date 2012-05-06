@@ -29,6 +29,7 @@ app.configure(function(){
 
 
 app.post('/convert', function(req, res){
+    //console.log(JSON.stringify(req.body));
     a = new arkleseizure.OBConvert();
     a.SetInFormat(req.body.inputFormat);
     a.SetOutFormat(req.body.outputFormat);
