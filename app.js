@@ -29,6 +29,7 @@ app.configure(function(){
 
 
 app.post('/convert', function(req, res){
+    //console.log(JSON.stringify(req.body));
     a = new arkleseizure.OBConvert();
     a.SetInFormat(req.body.inputFormat);
     a.SetOutFormat(req.body.outputFormat);
@@ -48,5 +49,5 @@ app.get('/*', function(req, res, next) {
 
 
 
-app.listen(80);
+app.listen(8081);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
